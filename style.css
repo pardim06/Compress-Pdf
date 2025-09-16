@@ -1,0 +1,497 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-top: 40px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.logo i {
+    font-size: 2.5rem;
+    color: #ff6b6b;
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.logo h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.card-header i {
+    font-size: 1.5rem;
+    color: #667eea;
+}
+
+.card-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.description {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+/* Upload Area */
+.upload-section {
+    margin-bottom: 30px;
+}
+
+.upload-area {
+    border: 2px dashed #ddd;
+    border-radius: 15px;
+    padding: 60px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #fafafa;
+}
+
+.upload-area:hover {
+    border-color: #667eea;
+    background: #f0f4ff;
+}
+
+.upload-area.dragover {
+    border-color: #667eea;
+    background: #f0f4ff;
+    transform: scale(1.02);
+}
+
+.upload-content {
+    pointer-events: none;
+}
+
+.upload-icon {
+    font-size: 3rem;
+    color: #999;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.upload-text {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.upload-subtext {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* File Info */
+.file-info {
+    margin-bottom: 30px;
+}
+
+.file-details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+}
+
+.file-icon {
+    font-size: 2rem;
+    color: #dc3545;
+}
+
+.file-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.file-name {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 2px;
+}
+
+.file-size {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.remove-file {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.remove-file:hover {
+    background: #f0f0f0;
+    color: #dc3545;
+}
+
+/* Compression Options */
+.compression-options {
+    margin-bottom: 30px;
+}
+
+.compression-options h3 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.option-card {
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.option-card:hover {
+    border-color: #667eea;
+    background: #f0f4ff;
+}
+
+.option-card input[type="radio"] {
+    display: none;
+}
+
+.option-card input[type="radio"]:checked + .option-content {
+    color: #667eea;
+}
+
+.option-card input[type="radio"]:checked {
+    & ~ * {
+        border-color: #667eea;
+    }
+}
+
+.option-card:has(input[type="radio"]:checked) {
+    border-color: #667eea;
+    background: #f0f4ff;
+}
+
+.option-content h4 {
+    margin-bottom: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.option-content p {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* Buttons */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.btn-primary, .btn-secondary, .btn-download {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: #667eea;
+    color: white;
+    flex: 1;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: #5a6fd8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-secondary {
+    background: #f8f9fa;
+    color: #666;
+    border: 1px solid #e9ecef;
+}
+
+.btn-secondary:hover {
+    background: #e9ecef;
+}
+
+.btn-download {
+    background: #28a745;
+    color: white;
+    width: 100%;
+    justify-content: center;
+}
+
+.btn-download:hover {
+    background: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+}
+
+/* Progress */
+.progress-section {
+    margin-bottom: 30px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 4px;
+}
+
+.progress-text {
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Download Section */
+.download-section {
+    text-align: center;
+}
+
+.download-info {
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    border: 1px solid #e9ecef;
+}
+
+.success-icon {
+    font-size: 3rem;
+    color: #28a745;
+    margin-bottom: 15px;
+}
+
+.download-info h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.size-comparison {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.size-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.size-item:last-child {
+    border-bottom: none;
+}
+
+.size-item.reduction {
+    font-weight: 600;
+    color: #28a745;
+}
+
+.size-label {
+    color: #666;
+}
+
+.size-value {
+    font-weight: 600;
+}
+
+/* Security Notice */
+.security-notice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+}
+
+.security-notice i {
+    color: #4CAF50;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .header {
+        padding-top: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .logo {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .logo h1 {
+        font-size: 2rem;
+    }
+    
+    .card {
+        padding: 25px;
+    }
+    
+    .upload-area {
+        padding: 40px 15px;
+    }
+    
+    .options-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .file-details {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo i {
+        font-size: 2rem;
+        padding: 12px;
+    }
+    
+    .logo h1 {
+        font-size: 1.8rem;
+    }
+    
+    .card {
+        padding: 20px;
+    }
+    
+    .upload-area {
+        padding: 30px 10px;
+    }
+    
+    .upload-icon {
+        font-size: 2.5rem;
+    }
+}

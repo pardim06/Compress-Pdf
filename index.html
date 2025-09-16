@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompressPDF </title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-file-pdf"></i>
+                <h1>CompressPDF</h1>
+            </div>
+            <p class="subtitle">Comprima seus arquivos PDF</p>
+        </header>
+
+   
+        <main class="main-content">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-compress-alt"></i>
+                    <h2>Selecione seu arquivo PDF</h2>
+                </div>
+                
+                <p class="description">
+                    Escolha um arquivo PDF para comprimir. 
+                </p>
+
+                
+                <div class="upload-section">
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-content">
+                            <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                            <p class="upload-text">Clique para selecionar o arquivo PDF</p>
+                            <p class="upload-subtext">ou arraste e solte aqui</p>
+                        </div>
+                        <input type="file" id="fileInput" accept=".pdf" hidden>
+                    </div>
+                </div>
+
+                
+                <div class="file-info" id="fileInfo" style="display: none;">
+                    <div class="file-details">
+                        <i class="fas fa-file-pdf file-icon"></i>
+                        <div class="file-text">
+                            <span class="file-name" id="fileName"></span>
+                            <span class="file-size" id="fileSize"></span>
+                        </div>
+                        <button class="remove-file" id="removeFile">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+              
+                <div class="compression-options" id="compressionOptions" style="display: none;">
+                    <h3>Opções de Compressão</h3>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="radio" name="compression" value="low" checked>
+                            <div class="option-content">
+                                <h4>Baixa Compressão</h4>
+                                <p>Melhor qualidade, arquivo maior</p>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="compression" value="medium">
+                            <div class="option-content">
+                                <h4>Compressão Média</h4>
+                                <p>Equilíbrio entre qualidade e tamanho</p>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="compression" value="high">
+                            <div class="option-content">
+                                <h4>Alta Compressão</h4>
+                                <p>Arquivo menor, qualidade reduzida</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+               
+                <div class="action-buttons">
+                    <button class="btn-primary" id="compressBtn" disabled>
+                        <i class="fas fa-compress-alt"></i>
+                        Comprimir PDF
+                    </button>
+                    <button class="btn-secondary" id="clearBtn" style="display: none;">
+                        Limpar
+                    </button>
+                </div>
+
+         
+                <div class="progress-section" id="progressSection" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p class="progress-text" id="progressText">Comprimindo arquivo...</p>
+                </div>
+
+           
+                <div class="download-section" id="downloadSection" style="display: none;">
+                    <div class="download-info">
+                        <i class="fas fa-check-circle success-icon"></i>
+                        <h3>Compressão concluída!</h3>
+                        <div class="size-comparison">
+                            <div class="size-item">
+                                <span class="size-label">Tamanho original:</span>
+                                <span class="size-value" id="originalSize"></span>
+                            </div>
+                            <div class="size-item">
+                                <span class="size-label">Tamanho comprimido:</span>
+                                <span class="size-value" id="compressedSize"></span>
+                            </div>
+                            <div class="size-item reduction">
+                                <span class="size-label">Redução:</span>
+                                <span class="size-value" id="reductionPercent"></span>
+                            </div>
+                        </div>
+                        <button class="btn-download" id="downloadBtn">
+                            <i class="fas fa-download"></i>
+                            Baixar PDF Comprimido
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+       
+        <div class="security-notice">
+            <i class="fas fa-shield-alt"></i>
+            <span>Seus arquivos são processados localmente no seu navegador.</span>
+        </div>
+
+       
+        <footer class="footer">
+            <p>Mesmo criador de UNE-PDF</p>
+        </footer>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
